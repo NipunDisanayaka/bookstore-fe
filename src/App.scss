@@ -1,0 +1,19 @@
+html, body {
+    background-color: #eee !important;
+}
+
+.login-box {
+    max-width: 350px;
+    padding: 25px 25px;
+    margin: 55px auto;
+    background-color: #fff;
+    border-radius: 35px;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Segoe UI", Arial, sans-serif
+  }
+
+
+
+@import '~bootstrap/scss/bootstrap';
