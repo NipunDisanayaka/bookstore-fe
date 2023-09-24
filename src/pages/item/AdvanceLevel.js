@@ -4,7 +4,7 @@ import { getRequest, postRequest } from "../../service/ApiService";
 import axios from "axios";
 
 
-const Items = () =>{
+const AdvanceLevel = () =>{
     const [items,setItems] = useState(null);
     const [cartError,setCartError] = useState(null);
     const [show, setShow] = useState(false);
@@ -14,7 +14,7 @@ const Items = () =>{
     useEffect(() => {
 
         const getAllItems = async () => {
-            const response = await getRequest("/items");
+            const response = await getRequest("/items/subCategory/1");
             setItems(response.data);
         }
 
@@ -143,4 +143,4 @@ const Items = () =>{
     )
 }
 
-export default Items
+export default AdvanceLevel;

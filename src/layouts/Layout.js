@@ -1,0 +1,63 @@
+import { Link, Outlet } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { NavDropdown } from "react-bootstrap";
+
+const Layout = () =>{
+    return(
+        <>
+         <div>
+            <Navbar expand="lg" className="bg-body-tertiary">
+                <Container>
+                    <Navbar.Brand href="#home">Book_Store</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="/">Home</Nav.Link>
+
+                            <NavDropdown title="Books" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/items">All Books</NavDropdown.Item>
+              <NavDropdown.Divider />
+                        
+                    <NavDropdown title="Education">
+                        <NavDropdown.Item href="/books/al">A/L</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">University</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Other Educational</NavDropdown.Item>
+                    </NavDropdown>
+
+                    <NavDropdown title="Lesure">
+                        <NavDropdown.Item href="#action/3.2">Novels</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Fictions</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Cheldren</NavDropdown.Item>
+                    </NavDropdown>
+
+            </NavDropdown>
+                            <Nav.Link href="/Cart">Cart 🛒</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                    <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+            Signed in : {sessionStorage.getItem("username")}
+          </Navbar.Text>
+        </Navbar.Collapse>
+                </Container>
+            </Navbar>
+
+            <Container className="py-4">
+                <Outlet />
+            </Container>
+
+
+
+            <footer className="bg-body-tertiary py-3">
+                <Container>
+                    This is the footer
+                </Container>
+            </footer>
+        </div>
+        </>
+    )
+}
+
+export default Layout;
