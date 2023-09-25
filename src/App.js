@@ -9,23 +9,46 @@ import Layout from './layouts/Layout';
 import AdvanceLevel from './pages/item/AdvanceLevel';
 import Checkout from './pages/Checkout';
 import Item from './pages/item/Item';
+import University from './pages/item/University';
+import OtherEducational from './pages/item/OtherEducational';
+import Novels from './pages/item/Novels';
+import Fiction from './pages/item/Fiction';
+import Children from './pages/item/Children';
+import Carousel from 'react-bootstrap/Carousel';
+import Homepage from './pages/Homepage';
+
 
 
 
 function App() {
   return (
+    
+
+
     <div className="App">
+
+    
+
+
       <BrowserRouter>
 
         <Routes>
         <Route path="/" element={<Layout />}>
+          
         <Route element={<ProtectedRoute />}>
-              <Route path="/" element={<>Homepage</>} />
+              <Route path="/" element={<Homepage/>} />
               <Route path="/items" element={<Items />} />
               <Route path='/cart' element={<Cart/>} />
               <Route path='/items/al' element={<AdvanceLevel/>} />
               <Route path='/cart/checkout' element={<Checkout/>} />
               <Route path='/items/id' element={<Item/>} />
+              <Route path='/items/university' element={<University/>} />
+              <Route path='/items/otherEducational' element={<OtherEducational/>}/>
+              <Route path='/items/novels' element={<Novels/>} />
+              <Route path='/items/fiction' element={<Fiction/>} />
+              <Route path='/items/Children' element={<Children/>} />
+             
+            
             
             </Route>
             </Route>
@@ -34,6 +57,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
+     
     </div>
   );
 }

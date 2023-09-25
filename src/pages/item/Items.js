@@ -62,12 +62,10 @@ const Items = () =>{
     
       if (show) {
         return (
-          <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-            <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+          <Alert variant="warning" onClose={() => setShow(false)} dismissible>
+            <Alert.Heading>This Book is already added.</Alert.Heading>
             <p>
-              Change this and that and try again. Duis mollis, est non commodo
-              luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-              Cras mattis consectetur purus sit amet fermentum.
+            You can view your total payable and purchase book from cart
             </p>
           </Alert>
         );
@@ -82,9 +80,7 @@ const Items = () =>{
            <Alert variant="success" onClose={() => setShowAdded(false)} dismissible>
              <Alert.Heading>Hey, You added Book Item successfully.</Alert.Heading>
              <p>
-               Change this and that and try again. Duis mollis, est non commodo
-               luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-               Cras mattis consectetur purus sit amet fermentum.
+             You can view your total payable and purchase book from cart
              </p>
            </Alert>
          );
@@ -94,6 +90,8 @@ const Items = () =>{
     return(
         <>
         <Container>
+
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Whole Book Collection..</p>
 
         {cartError &&
                             // <div className='text-danger mb-3'>
@@ -120,7 +118,7 @@ const Items = () =>{
               
 
               <Card.Text>
-                    hgfhytfhjkiyjtytj
+             <p>Written By {item.author}</p>
               </Card.Text>
 
              

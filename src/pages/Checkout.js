@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Form, Row, Table } from "react-bootstrap";
+import { Alert, Button, Card, Col, Container, Form, Row, Table } from "react-bootstrap";
 import { getRequest } from "../service/ApiService";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () =>{
 
@@ -17,6 +18,9 @@ const Checkout = () =>{
     const[city,setCity] = useState("");
     const [registerEnabled, setRegisterEnabled] = useState(false);
     const [poceedEnabled, setProceedEnabled] = useState(false);
+    const [show, setShow] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() =>{
         const getAllCartItems = async () =>{
@@ -94,6 +98,30 @@ const Checkout = () =>{
     }
     }
 
+    function proceedSuccess() {
+      
+    
+      return (
+        <>
+          <Alert show={show} variant="success">
+            <Alert.Heading>Order Comfiremed successfully</Alert.Heading>
+            <p>
+             We take 1-3 bussiness days to create this item.On average your order will be sent out withing 2-3 days.
+            </p>
+            <hr />
+            <div className="d-flex justify-content-end">
+              <Button className="ms-3 mb-3" onClick={() => setShow(false)} variant="outline-success">
+                Close me
+              </Button>
+              <Button className="ms-3 mb-3" onClick={() => navigate("/")} variant="outline-success">
+               Home
+              </Button>
+            </div>
+          </Alert>
+        </>
+      );
+    }
+
     const handleProceedPay =async () =>{
         const data = {
             "name": name,
@@ -108,14 +136,28 @@ const Checkout = () =>{
 
         try {
           const response = await axios.post("http://localhost:8081/shipping", data);
-          // setCartError("");
-          // setShowAdded(true);
           console.log(response);
+         
+
          } catch (error) {
           console.error("Something bad happened");
-          // setShow(true);
-          // setCartError("Item is already added.");
          }
+
+         try {
+          // const response = await getRequest(`/addToCart/delete/user/${sessionStorage.getItem('user_id')}`);
+          // const response = await axios.get(`http://localhost:8081/addToCart/delete/user/${sessionStorage.getItem('user_id')}`)
+          const response = await getRequest('/addToCart/delete');
+          setShow(true);
+         
+         } catch (error) {
+          console.log(error);
+          
+         }
+
+        //  window.location.reload();
+        //  setShow(true);
+        
+         
     }
 
     function TotalPay() {
@@ -185,7 +227,7 @@ const Checkout = () =>{
               </Form.Group>
             </Row>
       
-            <Button variant="primary" type="submit" disabled={!registerEnabled}>
+            <Button className="ms-3 mb-3" variant="primary" type="submit" disabled={!registerEnabled}>
               Submit
             </Button>
           </Form>
@@ -234,6 +276,8 @@ return(
         </div>
 
         {shippingDetailForm()}
+        {proceedSuccess()}
+        
                 <div className="mt-5">
                 {TotalPay()}
                 </div>

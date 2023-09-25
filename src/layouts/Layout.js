@@ -22,14 +22,14 @@ const Layout = () =>{
                         
                     <NavDropdown title="Education">
                         <NavDropdown.Item href="/items/al">A/L</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">University</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Other Educational</NavDropdown.Item>
+                        <NavDropdown.Item href="/items/university">University</NavDropdown.Item>
+                        <NavDropdown.Item href="/items/otherEducational">Other Educational</NavDropdown.Item>
                     </NavDropdown>
 
                     <NavDropdown title="Lesure">
-                        <NavDropdown.Item href="#action/3.2">Novels</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Fictions</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Cheldren</NavDropdown.Item>
+                        <NavDropdown.Item href="/items/novels">Novels</NavDropdown.Item>
+                        <NavDropdown.Item href="/items/fiction">Fictions</NavDropdown.Item>
+                        <NavDropdown.Item href="/items/children">Cheldren</NavDropdown.Item>
                     </NavDropdown>
 
             </NavDropdown>

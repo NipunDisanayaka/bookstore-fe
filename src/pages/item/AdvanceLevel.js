@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
-import { Alert, Button, Card, Col, Container, Row, Table } from "react-bootstrap"
+import { Alert, Button, Card, Col, Container, Navbar, Row, Table } from "react-bootstrap"
 import { getRequest, postRequest } from "../../service/ApiService";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const AdvanceLevel = () =>{
@@ -9,6 +10,7 @@ const AdvanceLevel = () =>{
     const [cartError,setCartError] = useState(null);
     const [show, setShow] = useState(false);
     const [showAdded, setShowAdded] = useState(false);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -60,12 +62,10 @@ const AdvanceLevel = () =>{
     
       if (show) {
         return (
-          <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-            <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+          <Alert variant="warning" onClose={() => setShow(false)} dismissible>
+            <Alert.Heading>This Book is already added.</Alert.Heading>
             <p>
-              Change this and that and try again. Duis mollis, est non commodo
-              luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-              Cras mattis consectetur purus sit amet fermentum.
+            You can view your total payable and purchase book from cart
             </p>
           </Alert>
         );
@@ -80,9 +80,7 @@ const AdvanceLevel = () =>{
            <Alert variant="success" onClose={() => setShowAdded(false)} dismissible>
              <Alert.Heading>Hey, You added Book Item successfully.</Alert.Heading>
              <p>
-               Change this and that and try again. Duis mollis, est non commodo
-               luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-               Cras mattis consectetur purus sit amet fermentum.
+             You can view your total payable and purchase book from cart
              </p>
            </Alert>
          );
@@ -91,7 +89,10 @@ const AdvanceLevel = () =>{
 
     return(
         <>
+
         <Container>
+
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Advance Level Relational Books...</p>
 
         {cartError &&
                             // <div className='text-danger mb-3'>
@@ -118,13 +119,13 @@ const AdvanceLevel = () =>{
               
 
               <Card.Text>
-                    hgfhytfhjkiyjtytj
+              <p>Written By {item.author}</p>
               </Card.Text>
 
              
              
-              <Button variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>add To Cart 🛒</Button>
-            
+              <Button className="mb-3" variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>add To Cart 🛒</Button>
+              <Button className="ms-3 mb-3" variant="outline-success" onClick={() =>{navigate("/items/id"); sessionStorage.setItem("book_id",item.id);}}>View 📖</Button>
                         
               
             </Card.Body>
