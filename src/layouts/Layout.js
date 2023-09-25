@@ -21,7 +21,7 @@ const Layout = () =>{
               <NavDropdown.Divider />
                         
                     <NavDropdown title="Education">
-                        <NavDropdown.Item href="/books/al">A/L</NavDropdown.Item>
+                        <NavDropdown.Item href="/items/al">A/L</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">University</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Other Educational</NavDropdown.Item>
                     </NavDropdown>

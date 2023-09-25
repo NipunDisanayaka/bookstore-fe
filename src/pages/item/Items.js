@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { Alert, Button, Card, Col, Container, Row, Table } from "react-bootstrap"
-import { getRequest, postRequest } from "../../service/ApiService";
+import { getRequest } from "../../service/ApiService";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const Items = () =>{
@@ -9,6 +10,7 @@ const Items = () =>{
     const [cartError,setCartError] = useState(null);
     const [show, setShow] = useState(false);
     const [showAdded, setShowAdded] = useState(false);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -123,8 +125,8 @@ const Items = () =>{
 
              
              
-              <Button variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>add To Cart 🛒</Button>
-            
+              <Button className="mb-3" variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>add To Cart 🛒</Button>
+              <Button className="ms-3 mb-3" variant="outline-success" onClick={() =>{navigate("/items/id"); sessionStorage.setItem("book_id",item.id);}}>View 📖</Button>
                         
               
             </Card.Body>

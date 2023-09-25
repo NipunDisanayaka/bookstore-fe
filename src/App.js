@@ -7,6 +7,8 @@ import Items from './pages/item/Items';
 import Cart from './pages/Cart';
 import Layout from './layouts/Layout';
 import AdvanceLevel from './pages/item/AdvanceLevel';
+import Checkout from './pages/Checkout';
+import Item from './pages/item/Item';
 
 
 
@@ -22,6 +24,8 @@ function App() {
               <Route path="/items" element={<Items />} />
               <Route path='/cart' element={<Cart/>} />
               <Route path='/items/al' element={<AdvanceLevel/>} />
+              <Route path='/cart/checkout' element={<Checkout/>} />
+              <Route path='/items/id' element={<Item/>} />
             
             </Route>
             </Route>
