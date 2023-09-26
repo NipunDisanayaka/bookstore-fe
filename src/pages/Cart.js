@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Card, Container, Table } from "react-bootstrap";
-import { getRequest } from "../service/ApiService";
+import { getRequest, postRequest } from "../service/ApiService";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -38,6 +38,47 @@ const Cart = () =>{
        
     }
 
+    const decreaseItem = async (cartId,availableQty,itemQty) =>{
+        let letqtyde = itemQty;
+        letqtyde=letqtyde-1;
+    
+          if(letqtyde < 2){
+             letqtyde=1;
+          }
+        const data = {
+            "qty":letqtyde
+        }
+
+        try {
+            const response = await axios.put(`http://localhost:8081/addToCart/${cartId}`,data);
+            window.location.reload();
+            console.log(response.data)
+        } catch (error) {
+            
+        }
+
+     }
+
+    const increseItem = async (cartId,availableQty,itemQty) =>{
+        let letqty = itemQty;
+        letqty=letqty+1;
+    
+        if( availableQty <letqty){
+             letqty=availableQty;
+          }
+        const data = {
+            "qty":letqty
+        }
+
+        try {
+            const response = await axios.put(`http://localhost:8081/addToCart/${cartId}`,data);
+            window.location.reload();
+            console.log(response.data)
+        } catch (error) {
+            
+        }
+
+    }
 
     function TotalPay() {
         return (
@@ -92,7 +133,7 @@ const Cart = () =>{
                             <td>{item.id}</td>
                             <td>{item.itemName}</td>
                             <td><p>Rs : {item.amount}</p></td>
-                            <td><Button variant="outline-success" onClick={()=>{setqty(qty-1)}}>-</Button> {item.qty} <Button variant="outline-success" onClick={()=>{setqty(qty+1)}}>+</Button></td>
+                            <td><Button variant="outline-success" onClick={()=> decreaseItem(item.id,item.availableQty,item.qty)}>-</Button> {item.qty} <Button variant="outline-success" onClick={()=>increseItem(item.id,item.availableQty,item.qty)}>+</Button></td>
                            <td><p>Rs : {item.amount * item.qty}</p></td>
                             <td>{item.availableQty}
                             {/* {totalpay=totalpay+(item.amount * item.qty)} */}
@@ -102,7 +143,7 @@ const Cart = () =>{
                                 <Button variant="secondary" size="sm">Edit</Button>&nbsp;
                                 <Button variant="danger" size="sm">Delete</Button>
                             </td> */}
-                            <td><Button variant="outline-danger" onClick={() => handleDelete(item.id)}>Delete 🗑️</Button></td>
+                            <td><Button variant="danger" onClick={() => handleDelete(item.id)}>🗑️</Button></td>
 
                         </tr>
                     )

@@ -226,10 +226,21 @@ const Checkout = () =>{
                 </Form.Select>
               </Form.Group>
             </Row>
-      
-            <Button className="ms-3 mb-3" variant="primary" type="submit" disabled={!registerEnabled}>
+
+            <Row>
+              <Col>
+              <Button className="ms-3 mb-1" variant="primary" type="submit" disabled={!registerEnabled}>
               Submit
             </Button>
+              </Col>
+
+              <Col>
+              <p className="text-primary">Please Enter the Submit before Proceed to Pay</p>
+              </Col>
+            </Row>
+      
+            
+            
           </Form>
         );
       }

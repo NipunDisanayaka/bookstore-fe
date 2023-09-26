@@ -93,12 +93,7 @@ const Items = () =>{
 
         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Whole Book Collection..</p>
 
-        {cartError &&
-                            // <div className='text-danger mb-3'>
-                            //     {cartError}
-                      
-                            // </div>
-                         
+        {cartError &&      
                             <div>
                               {errorAlert()}
                             </div>
