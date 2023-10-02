@@ -90,9 +90,12 @@ const Fiction = () =>{
     return(
         <>
 
-        <Container>
+<Container>
+        <Card className="mt-3" style={{backgroundColor:'#F4F5F9'}}>
+      <Card.Body>
+      <p class="text-center m3-5 mx-1 mx-md-4 mt-3 text-info" >Best Leisure Time Books</p>
+        <p class="text-center h2 fw-bold m3-5 mb-5 mx-1 mx-md-4 mt-3" style={{color:'#083A79'}}>Fiction</p>
 
-        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Fictions...</p>
 
         {cartError &&
                             // <div className='text-danger mb-3'>
@@ -124,8 +127,8 @@ const Fiction = () =>{
 
              
              
-              <Button className="mb-3" variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>add To Cart 🛒</Button>
-              <Button className="ms-3 mb-3" variant="outline-success" onClick={() =>{navigate("/items/id"); sessionStorage.setItem("book_id",item.id);}}>View 📖</Button>
+              <Button className="mb-3" variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>🛒</Button>
+              <Button className="ms-3 mb-3" variant="outline-success" onClick={() =>{navigate("/items/id"); sessionStorage.setItem("book_id",item.id);}}>👁️‍🗨️</Button>
                         
               
             </Card.Body>
@@ -136,6 +139,8 @@ const Fiction = () =>{
 
                 
     </Row>
+    </Card.Body>
+       </Card>
    
         </Container>
         

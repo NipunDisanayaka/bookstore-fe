@@ -190,7 +190,7 @@ const Checkout = () =>{
               </Form.Group>
       
               <Form.Group as={Col} controlId="formGridMobile">
-                <Form.Label>Enter Your Mobile No</Form.Label>
+                <Form.Label>Your Mobile No</Form.Label>
                 <Form.Control placeholder="+9471-23456789" value={mobile} onChange={handleMobile} />
               </Form.Group>
             </Row>

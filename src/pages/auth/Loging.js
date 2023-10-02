@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import { useState } from "react"
-import { Button, Container, FloatingLabel, Form } from "react-bootstrap"
+import { Button, Container, FloatingLabel, Form, Navbar } from "react-bootstrap"
 import { useNavigate } from "react-router-dom";
 
 
@@ -50,10 +50,23 @@ const Login = () =>{
 
     return(
         <>
-       <Container>
+          
+        <Container>
             <div className="login-box">
                 <div className="text-center">
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
+                <Container>
+          <Navbar.Brand href="#home">
+            <img
+              alt=""
+              src="http://localhost:8081/uploads/logob.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{' '}
+           <p class="text-center h5 fw-bold" style={{color:'#EF6B2B'}} >Books_Store</p>
+          </Navbar.Brand>
+        </Container>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up</p>
                 </div>
 
                 <Form onSubmit={handleSubmit}>
@@ -72,13 +85,19 @@ const Login = () =>{
                         }
 
                         <div className='text-end'>
-                            <Button type="submit" variant="primary">Login</Button>
+                            <Button type="submit" variant="primary">Sign Up</Button>
                            
+                        </div>
+
+                        <div>
+                            <p><a href="/register" style={{textDecoration:'none'}}>Don't have an account ?</a></p>
                         </div>
 
                 </Form>
             </div>
        </Container>
+        
+     
        </>
     )
 }

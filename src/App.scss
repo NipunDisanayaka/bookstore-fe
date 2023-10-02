@@ -1,19 +1,41 @@
 html, body {
-    background-color: #eee !important;
+    background-color: #F8F9FA !important;
 }
 
 .login-box {
     max-width: 350px;
     padding: 25px 25px;
-    margin: 55px auto;
+    margin: 80px auto;
     background-color: #fff;
     border-radius: 35px;
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+    
 }
 
 body, h1, h2, h3, h4, h5, h6 {
     font-family: "Segoe UI", Arial, sans-serif
   }
 
+.footerContent {
+    max-width: 550px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+    color: #cacdd2;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.footerContentTitle{
+    font-size: 2.1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 3rem;
+    padding-top: 15px;
+}
+
+$primary-color:#563D7C;
 
 
 @import '~bootstrap/scss/bootstrap';

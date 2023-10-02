@@ -116,7 +116,7 @@ const Cart = () =>{
                     <th>Item Name</th>
                     <th>Price</th>
                     <th> Qty  </th>
-                    <th>Total price per Item</th>
+                    <th>Total per Item</th>
                     <th>Available Qty</th>
                     <th> </th>
                     

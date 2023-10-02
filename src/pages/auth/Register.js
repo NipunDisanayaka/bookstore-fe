@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Button, Container, FloatingLabel, Form } from "react-bootstrap"
+import { Button, Container, FloatingLabel, Form, Navbar } from "react-bootstrap"
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
 
@@ -72,7 +72,19 @@ const Register = () =>{
        <Container>
             <div className="login-box">
                 <div className="text-center">
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                <Container>
+          <Navbar.Brand href="#home">
+            <img
+              alt=""
+              src="http://localhost:8081/uploads/logob.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{' '}
+           <p class="text-center h5 fw-bold" style={{color:'#EF6B2B'}} >Books_Store</p>
+          </Navbar.Brand>
+        </Container>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register</p>
                 </div>
 
                 <Form onSubmit={handleRegister}>
@@ -95,12 +107,16 @@ const Register = () =>{
                         }
 
                         <div className='text-end'>
-                            <Button type="submit" variant="primary" disabled={!registerEnabled}>Sign Up</Button>
+                            <Button type="submit" variant="primary" disabled={!registerEnabled}>Register</Button>
                            
                         </div>
 
                 </Form>
+                <div>
+                            <p><a href="/login" style={{textDecoration:'none'}}>Do you have an account ?</a></p>
+                        </div>
             </div>
+
        </Container>
        </>
     )

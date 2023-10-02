@@ -3,6 +3,7 @@ import { getRequest } from "../service/ApiService";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import CategoryNev from "../customs/CategoryNev";
 
 const Homepage = () =>{
 
@@ -106,9 +107,9 @@ const Homepage = () =>{
 
 return(
  <>
- <Container>
+  <div>
 
- <Carousel data-bs-theme="dark">
+ <Carousel data-bs-theme="light" className="mb-3">
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -132,14 +133,17 @@ return(
       </Carousel.Item>
     </Carousel>
 
- </Container>
+   {CategoryNev()}
+
+
+   </div>
 
  <Container>
 
- <Card className="mt-5" >
+ <Card className="mt-3" style={{backgroundColor:'#F4F5F9'}}>
       <Card.Body>
-      <p class="text-center m3-5 mx-1 mx-md-4 mt-3 text-info">Best Educational Books</p>
-        <p class="text-center h2 fw-bold m3-5 mb-5 mx-1 mx-md-4 mt-3 text-secondary">Educational Books</p>
+      <p class="text-center m3-5 mx-1 mx-md-4 mt-3 text-info" >Best Educational Books</p>
+        <p class="text-center h2 fw-bold m3-5 mb-5 mx-1 mx-md-4 mt-3" style={{color:'#083A79'}}>Educational Books</p>
 
         {cartError &&      
                             <div>
@@ -151,10 +155,10 @@ return(
                               {successfullyAddedAlert()}
                             </div>
 
-        <Row xs={1} md={4} className="g-4">
+        <Row xs={1} md={6} className="g-4">
       {educational && educational.map(item => (
         <Col key={item.id}>
-          <Card border="info">
+          <Card border="info" className="shadow-lg">
             <Card.Img variant="top" src={`http://localhost:8081/uploads/${item.image}`} />
             <Card.Body>
               <Card.Title>{item.title}</Card.Title>
@@ -166,8 +170,8 @@ return(
 
              
              
-              <Button className="mb-3" variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>add To Cart 🛒</Button>
-              <Button className="ms-3 mb-3" variant="outline-success" onClick={() =>{navigate("/items/id"); sessionStorage.setItem("book_id",item.id);}}>View 📖</Button>
+              <Button className="mb-3" variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>🛒</Button>
+              <Button className="ms-3 mb-3" variant="outline-success" onClick={() =>{navigate("/items/id"); sessionStorage.setItem("book_id",item.id);}}>👁️‍🗨️</Button>
                         
               
             </Card.Body>
@@ -186,10 +190,10 @@ return(
 
  <Container >
     
-    <Card className="mt-5 ">
+    <Card className="mt-5 " style={{backgroundColor:'#F4F5F9'}}>
          <Card.Body>
          <p class="text-center m3-5 mx-1 mx-md-4 mt-3 text-info">Books for your leisure time</p>
-           <p class="text-center h2 fw-bold m3-5 mb-5 mx-1 mx-md-4 mt-3 text-secondary">For Leisure Time</p>
+           <p class="text-center h2 fw-bold m3-5 mb-5 mx-1 mx-md-4 mt-3" style={{color:'#083A79'}}>For Leisure Time</p>
 
            {cartError &&      
                             <div>
@@ -201,10 +205,10 @@ return(
                               {successfullyAddedAlert()}
                             </div>
    
-           <Row xs={1} md={4} className="g-4">
+           <Row xs={1} md={6} className="g-4">
          {leisure && leisure.map(item => (
-           <Col key={item.id}>
-             <Card border="info">
+           <Col key={item.id} >
+             <Card border="info" className="shadow-lg">
                <Card.Img variant="top" src={`http://localhost:8081/uploads/${item.image}`} />
                <Card.Body>
                  <Card.Title>{item.title}</Card.Title>
@@ -216,8 +220,8 @@ return(
    
                 
                 
-                 <Button className="mb-3" variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>add To Cart 🛒</Button>
-                 <Button className="ms-3 mb-3" variant="outline-success" onClick={() =>{navigate("/items/id"); sessionStorage.setItem("book_id",item.id);}}>View 📖</Button>
+                 <Button className="mb-3" variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>🛒</Button>
+                 <Button className="ms-3 mb-3" variant="outline-success" onClick={() =>{navigate("/items/id"); sessionStorage.setItem("book_id",item.id);}}>👁️‍🗨️</Button>
                            
                  
                </Card.Body>

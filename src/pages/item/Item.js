@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getRequest, postRequest } from "../../service/ApiService";
+import { getRequest } from "../../service/ApiService";
 import { Alert, Button, Card, Col, Container, Image, Row } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -13,8 +13,8 @@ const[qty,setqty] = useState(1);
 const[availableQty,setavailableQty] = useState(0);
 const[itemId,setItemId] = useState(0);
 const[price,setPrice] = useState(0);
-const [showAdded, setShowAdded] = useState(false);
 const [show, setShow] = useState(false);
+const [description,setDestription] = useState();
 const [errorShow,setErrorShow] =useState(false);
 const navigate = useNavigate();
 
@@ -30,7 +30,8 @@ const navigate = useNavigate();
             setAuther(response.data.author);
             setavailableQty(response.data.availableQty);
             setItemId(id);
-            setPrice(response.data.price)
+            setPrice(response.data.price);
+            setDestription(response.data.description)
            console.log(response);
         }
 
@@ -81,23 +82,25 @@ const navigate = useNavigate();
 
     return(
         <>
-         <Container>
+
          <div>
         <p class=" h3 fw-bold mb-5 mx-1 mx-md-4 mt-4">{bookname}</p>
         </div>
        
       <Row>
-        <Col xs={6} md={4}>
+        <Col xs={12} md={4}>
           <Image src={`http://localhost:8081/uploads/${image}`} thumbnail className="br-4" />
         </Col>
-        <Col xs={6} md={4}>
+        <Col xs={12} md={8}>
         <Card style={{ width: '36rem' }}>
       <Card.Header as="h5">Written By {auther}</Card.Header>
       <Card.Body>
         <Card.Title className="mt-3">Littel About Book..</Card.Title>
         <Card.Text className="mt-2">
-            <p> Describe the main plot, theme, or idea only. Avoid details that may overwhelm or confuse a reader who's only taking a second or two to decide whether to find out more about your book. Also, keep your language short and simple. Aim for a 150-word paragraph with sentences that are easy to scan.
-        </p>
+            <p>{description}</p>
+
+        <p style={{color:'darkgreen'}}>{availableQty} Books In Stock</p>
+
 
         <>
          <Alert show={show} variant="success">
@@ -130,6 +133,7 @@ const navigate = useNavigate();
              <Button className="ms-3" onClick={() => navigate("/cart")} variant="outline-success">
               Go to Cart
              </Button>
+
            </div>
          </Alert>
        </>
@@ -150,8 +154,6 @@ const navigate = useNavigate();
             </Row>
 
       
-      
-    </Container>
         </>
     )
 }

@@ -14,8 +14,9 @@ import OtherEducational from './pages/item/OtherEducational';
 import Novels from './pages/item/Novels';
 import Fiction from './pages/item/Fiction';
 import Children from './pages/item/Children';
-import Carousel from 'react-bootstrap/Carousel';
 import Homepage from './pages/Homepage';
+import AboutUs from './pages/AboutUs';
+import SignOut from './customs/SignOut';
 
 
 
@@ -47,7 +48,8 @@ function App() {
               <Route path='/items/novels' element={<Novels/>} />
               <Route path='/items/fiction' element={<Fiction/>} />
               <Route path='/items/Children' element={<Children/>} />
-             
+              <Route path='/aboutus' element={<AboutUs/>}/>
+              <Route path='/signOut' element={<SignOut/>} />
             
             
             </Route>
