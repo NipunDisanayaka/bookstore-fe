@@ -140,10 +140,10 @@ return(
 
  <Container>
 
- <Card className="mt-3" style={{backgroundColor:'#F4F5F9'}}>
+ <Card className="mt-3" style={{backgroundColor:'#F2F2F2'}}>
       <Card.Body>
-      <p class="text-center m3-5 mx-1 mx-md-4 mt-3 text-info" >Best Educational Books</p>
-        <p class="text-center h2 fw-bold m3-5 mb-5 mx-1 mx-md-4 mt-3" style={{color:'#083A79'}}>Educational Books</p>
+      <p class="text-center m3-5 mx-1 mx-md-4 mt-3 text-secondary" >Best Educational Books</p>
+        <p class="text-center h2 fw-bold m3-5 mb-5 mx-1 mx-md-4 mt-3" style={{color:'#1A2031'}}>Educational Books</p>
 
         {cartError &&      
                             <div>
@@ -155,11 +155,11 @@ return(
                               {successfullyAddedAlert()}
                             </div>
 
-        <Row xs={1} md={6} className="g-4">
+        <Row xs={1} md={5} className="g-4">
       {educational && educational.map(item => (
         <Col key={item.id}>
           <Card border="info" className="shadow-lg">
-            <Card.Img variant="top" src={`http://localhost:8081/uploads/${item.image}`} />
+            <Card.Img className="cardImage" variant="top" src={`http://localhost:8081/uploads/${item.image}`} />
             <Card.Body>
               <Card.Title>{item.title}</Card.Title>
               
@@ -168,7 +168,9 @@ return(
              <p>Written By {item.author}</p>
               </Card.Text>
 
-             
+              <Card.Text>
+                 <p className="h6" style={{color:'#EF6B2B'}}>Rs. {item.price}</p>
+                 </Card.Text>
              
               <Button className="mb-3" variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>🛒</Button>
               <Button className="ms-3 mb-3" variant="outline-success" onClick={() =>{navigate("/items/id"); sessionStorage.setItem("book_id",item.id);}}>👁️‍🗨️</Button>
@@ -192,8 +194,8 @@ return(
     
     <Card className="mt-5 " style={{backgroundColor:'#F4F5F9'}}>
          <Card.Body>
-         <p class="text-center m3-5 mx-1 mx-md-4 mt-3 text-info">Books for your leisure time</p>
-           <p class="text-center h2 fw-bold m3-5 mb-5 mx-1 mx-md-4 mt-3" style={{color:'#083A79'}}>For Leisure Time</p>
+         <p class="text-center m3-5 mx-1 mx-md-4 mt-3 text-secondary">Books for your leisure time</p>
+           <p class="text-center h2 fw-bold m3-5 mb-5 mx-1 mx-md-4 mt-3" style={{color:'#1A2031'}}>For Leisure Time</p>
 
            {cartError &&      
                             <div>
@@ -205,11 +207,11 @@ return(
                               {successfullyAddedAlert()}
                             </div>
    
-           <Row xs={1} md={6} className="g-4">
+           <Row xs={1} md={5} className="g-4">
          {leisure && leisure.map(item => (
            <Col key={item.id} >
              <Card border="info" className="shadow-lg">
-               <Card.Img variant="top" src={`http://localhost:8081/uploads/${item.image}`} />
+               <Card.Img className="cardImage" variant="top" src={`http://localhost:8081/uploads/${item.image}`} />
                <Card.Body>
                  <Card.Title>{item.title}</Card.Title>
                  
@@ -218,7 +220,9 @@ return(
                 <p>Written By {item.author}</p>
                  </Card.Text>
    
-                
+                 <Card.Text>
+                 <p className="h6" style={{color:'#EF6B2B'}}>Rs. {item.price}</p>
+                 </Card.Text>
                 
                  <Button className="mb-3" variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>🛒</Button>
                  <Button className="ms-3 mb-3" variant="outline-success" onClick={() =>{navigate("/items/id"); sessionStorage.setItem("book_id",item.id);}}>👁️‍🗨️</Button>

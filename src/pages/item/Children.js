@@ -115,7 +115,7 @@ const Children = () =>{
       {items && items.map(item => (
         <Col key={item.id}>
           <Card border="info">
-            <Card.Img variant="top" src={`http://localhost:8081/uploads/${item.image}`} />
+            <Card.Img className="cardImage" variant="top" src={`http://localhost:8081/uploads/${item.image}`} />
             <Card.Body>
               <Card.Title>{item.title}</Card.Title>
               
@@ -124,7 +124,9 @@ const Children = () =>{
               <p>Written By {item.author}</p>
               </Card.Text>
 
-             
+              <Card.Text>
+                 <p className="h6" style={{color:'#EF6B2B'}}>Rs. {item.price}</p>
+                 </Card.Text>
              
               <Button className="mb-3" variant="outline-success" onClick={() => handleAddToCart(item.id,item.title,item.price,item.availableQty)}>🛒</Button>
               <Button className="ms-3 mb-3" variant="outline-success" onClick={() =>{navigate("/items/id"); sessionStorage.setItem("book_id",item.id);}}>👁️‍🗨️</Button>

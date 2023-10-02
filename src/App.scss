@@ -35,6 +35,38 @@ body, h1, h2, h3, h4, h5, h6 {
     padding-top: 15px;
 }
 
+.cardImage{
+     width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+@media (max-width:480px){
+    .cardImage{
+        width: 100%;
+       height: 220px;
+       object-fit: cover;
+   }
+}
+
+@media (max-width:667px){
+    .cardImage{
+        width: 100%;
+       height: 300px;
+       object-fit: cover;
+   }
+}
+
+@media (max-width:480px){
+    .book_destription{
+        font-size: 1.1rem;
+        font-weight: 20;
+        line-height: 2rem;
+        
+    }
+   
+}
+
 $primary-color:#563D7C;
 
 

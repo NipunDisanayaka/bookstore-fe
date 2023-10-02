@@ -17,6 +17,8 @@ const [show, setShow] = useState(false);
 const [description,setDestription] = useState();
 const [errorShow,setErrorShow] =useState(false);
 const navigate = useNavigate();
+const [category,setCategory] = useState();
+const [subCategory,setSubCategory] = useState();
 
 
     useEffect(() => {
@@ -31,7 +33,9 @@ const navigate = useNavigate();
             setavailableQty(response.data.availableQty);
             setItemId(id);
             setPrice(response.data.price);
-            setDestription(response.data.description)
+            setDestription(response.data.description);
+            setCategory(response.data.subCategory.category.name);
+            setSubCategory(response.data.subCategory.name)
            console.log(response);
         }
 
@@ -88,21 +92,27 @@ const navigate = useNavigate();
         </div>
        
       <Row>
-        <Col xs={12} md={4}>
+        <Col xs={12} s={12} md={4}>
           <Image src={`http://localhost:8081/uploads/${image}`} thumbnail className="br-4" />
         </Col>
-        <Col xs={12} md={8}>
+        <Col xs={12} s={12} md={8}>
         <Card style={{ width: '36rem' }}>
       <Card.Header as="h5">Written By {auther}</Card.Header>
       <Card.Body>
+
+
+
         <Card.Title className="mt-3">Littel About Book..</Card.Title>
         <Card.Text className="mt-2">
-            <p>{description}</p>
+          <p>{category} --- {subCategory}</p>
+            <p className="book_destription">{description}</p>
+
+            <p className="h5" style={{color:'#EF6B2B'}}>Rs. {price}</p>
 
         <p style={{color:'darkgreen'}}>{availableQty} Books In Stock</p>
 
 
-        <>
+        
          <Alert show={show} variant="success">
            <Alert.Heading>successfully Book added to the Cart</Alert.Heading>
            <p>
@@ -119,7 +129,7 @@ const navigate = useNavigate();
            </div>
          </Alert>
 
-         <>
+         
          <Alert show={errorShow} variant="warning">
            <Alert.Heading>This Book is already added.</Alert.Heading>
            <p>
@@ -136,8 +146,8 @@ const navigate = useNavigate();
 
            </div>
          </Alert>
-       </>
-       </>
+       
+       
 
 
 
